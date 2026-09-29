@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tema 4 · Porfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E9EDF2;--card:#FFFFFF;--ink:#1F2A44;--muted:#5B6782;--rule:#B3261E;--line:#C9D6E8;--tab:#D6DEE9;--hint:#8A94A8;--deep:#1F2A44;--onDeep:#F2F5FA;
+  box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#141A26;--card:#1D2536;--ink:#E6EAF2;--muted:#A3AEC4;--rule:#E0645B;--line:#2E3A52;--tab:#28324A;--hint:#7C88A0;--deep:#0E131D;--onDeep:#E6EAF2}}
+:root[data-theme="dark"]{--paper:#141A26;--card:#1D2536;--ink:#E6EAF2;--muted:#A3AEC4;--rule:#E0645B;--line:#2E3A52;--tab:#28324A;--hint:#7C88A0;--deep:#0E131D;--onDeep:#E6EAF2}
+html{scroll-padding-top:calc(4.5rem + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+.top{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .45s ease}
+.top.show{transform:none}
+.top .in{max-width:68rem;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.7rem 1.25rem}
+.brand{font:700 1.05rem "Libre Caslon Text",Georgia,serif;text-decoration:none;white-space:nowrap}
+.menu{display:flex;gap:.15rem;margin-left:auto;overflow-x:auto;align-items:center}
+.menu a{font:600 .92rem "Source Sans 3",sans-serif;color:var(--muted);text-decoration:none;padding:.4rem .65rem;border-radius:.4rem;white-space:nowrap;position:relative}
+.menu a[aria-current="page"]{color:var(--ink)}
+.menu a[aria-current="page"]::after{content:"";position:absolute;left:.65rem;right:.65rem;bottom:.1rem;height:2px;background:var(--rule)}
+.menu a:hover{color:var(--ink)}
+.dl{font:600 .85rem "Source Sans 3",sans-serif;background:var(--rule);color:#fff;border:0;border-radius:.4rem;padding:.45rem .8rem;cursor:pointer;white-space:nowrap;margin-left:.4rem}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--rule);width:0}
+a:focus-visible,button:focus-visible,input:focus-visible,[contenteditable]:focus-visible{outline:2px solid var(--rule);outline-offset:2px}
+.page{animation:enter .55s cubic-bezier(.2,.7,.2,1)}
+@keyframes enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes rise{to{opacity:1;transform:none}}
+.btn{font:600 1rem "Source Sans 3",sans-serif;border-radius:.45rem;padding:.8rem 1.3rem;cursor:pointer;border:1.5px solid transparent;text-decoration:none;display:inline-block}
+.btn.primary{background:var(--rule);color:#fff}
+.btn.ghost{background:transparent;color:var(--onDeep);border-color:#5E7090}
+.btn.ghost:hover{border-color:var(--onDeep)}
+.lined::before{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;
+  background-image:linear-gradient(to bottom,transparent calc(2.4rem - 1px),#7E97BD calc(2.4rem - 1px));background-size:100% 2.4rem;animation:lines 40s linear infinite}
+@keyframes lines{to{background-position:0 24rem}}
+/* Inicio */
+.hero{min-height:100vh;min-height:100svh;background:var(--deep);color:var(--onDeep);position:relative;overflow:hidden;display:grid;align-items:center;padding:calc(4rem + env(safe-area-inset-top,0px)) 1.25rem 3rem}
+.hero .in{position:relative;max-width:68rem;margin:0 auto;width:100%;display:grid;gap:3rem;grid-template-columns:1.1fr 1fr;align-items:center}
+@media (max-width:820px){.hero .in{grid-template-columns:1fr}}
+.kicker{color:#AFC0DA;margin:0 0 1rem;font-weight:600}
+.hero h1{font:700 clamp(2.4rem,6.5vw,4.4rem)/1.05 "Libre Caslon Text",Georgia,serif;margin:0 0 1.25rem}
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(.6em);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .lead{max-width:34rem;color:#C9D4E6;margin:0 0 2rem;opacity:0;transform:translateY(12px);animation:rise .8s .9s forwards}
+.who{display:block;margin-top:.4rem;color:#fff}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap;opacity:0;transform:translateY(12px);animation:rise .8s 1.1s forwards}
+.drawer{position:relative;height:25rem}
+@media (max-width:820px){.drawer{height:21rem}}
+.fcard{position:absolute;left:50%;top:50%;width:min(19rem,78vw);aspect-ratio:5/3;background:#FBFCFE;color:#1F2A44;border-radius:.35rem;padding:1rem 1.2rem;text-decoration:none;
+  box-shadow:0 10px 30px rgba(5,10,25,.35);
+  background-image:linear-gradient(#B3261E,#B3261E),linear-gradient(to bottom,transparent calc(1.5rem - 1px),#C9D6E8 calc(1.5rem - 1px));
+  background-size:100% 2px,100% 1.5rem;background-position:0 2.6rem,0 2.9rem;background-repeat:no-repeat,repeat-y;
+  transform:translate(-50%,-50%) translateY(120%);opacity:0;transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .3s,opacity .4s}
+.drawer.dealt .fcard{opacity:1}
+.fcard .n{font:700 .85rem "Source Sans 3",sans-serif;color:#B3261E;display:block}
+.fcard .t{font:700 1.05rem/1.3 "Libre Caslon Text",Georgia,serif;display:block;margin-top:1.1rem}
+.fcard .t.empty,.tile .t.empty{color:#8A94A8;font-weight:400;font-style:italic}
+.fcard .pct{position:absolute;right:1rem;top:1rem;font:600 .8rem "Source Sans 3",sans-serif;color:#5B6782}
+.fcard:hover,.fcard:focus-visible{z-index:9!important;box-shadow:0 18px 40px rgba(5,10,25,.5)}
+.scroll-hint{position:absolute;left:50%;bottom:1.5rem;transform:translateX(-50%);color:#8FA2C2;font-size:.85rem;display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:0;animation:rise .8s 1.8s forwards}
+.scroll-hint i{width:1px;height:2rem;background:#8FA2C2;animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.band{max-width:68rem;margin:0 auto;padding:5rem 1.25rem}
+.band h2{font:700 clamp(1.7rem,3.5vw,2.3rem)/1.2 "Libre Caslon Text",Georgia,serif;margin:0 0 1rem}
+.split{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:1rem}}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:1rem;margin-top:2rem}
+.tile{background:var(--card);border-top:3px solid var(--rule);border-radius:.2rem .2rem .6rem .6rem;color:var(--ink);text-decoration:none;
+  padding:1.3rem 1.3rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;min-height:11rem;transition:transform .25s,box-shadow .25s}
+.tile:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(20,30,60,.12)}
+.tile .n{font-weight:700;color:var(--rule);font-size:.9rem}
+.tile .t{font:700 1.15rem/1.3 "Libre Caslon Text",Georgia,serif}
+.bar{margin-top:auto;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--rule);width:0;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.tile small{color:var(--muted)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+footer{background:var(--deep);color:#AFC0DA;text-align:center;padding:2.5rem 1.25rem;font-size:.9rem}
+/* Tema */
+.theme-head{background:var(--deep);color:var(--onDeep);padding:calc(6.5rem + env(safe-area-inset-top,0px)) 1.25rem 3.5rem;position:relative;overflow:hidden}
+.theme-head .in{position:relative;max-width:68rem;margin:0 auto}
+.theme-head .n{color:#F08C84;font-weight:700;margin:0 0 .5rem}
+.theme-head h1{font:700 clamp(2rem,5vw,3.3rem)/1.1 "Libre Caslon Text",Georgia,serif;margin:0 0 .75rem;max-width:48rem}
+.theme-head p{color:#C9D4E6;margin:0;max-width:40rem}
+.theme-head .editable:empty::before,.hero .editable:empty::before{color:#8FA2C2}
+.theme-body{max-width:68rem;margin:0 auto;padding:3rem 1.25rem 4rem;display:grid;grid-template-columns:14rem 1fr;gap:3rem}
+.toc{position:sticky;top:5.5rem;align-self:start;font-size:.92rem}
+.toc p{font-weight:700;margin:0 0 .6rem}
+.toc button.step{display:block;width:100%;text-align:left;font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:.4rem 0 .4rem .8rem;border-left:2px solid var(--line);transition:color .2s,border-color .2s}
+.toc button.step:hover{color:var(--ink)}
+.toc button.step.on{color:var(--ink);font-weight:600;border-left-color:var(--rule)}
+.toc .ok{color:var(--rule);margin-left:.3rem}
+.toc .add{margin-top:1rem;width:100%}
+@media (max-width:900px){.theme-body{grid-template-columns:1fr;gap:1.25rem}
+  .toc{position:static;display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.3rem}.toc p{display:none}
+  .toc button.step{border-left:0;border-bottom:2px solid var(--line);white-space:nowrap;padding:.4rem .7rem;width:auto}
+  .toc button.step.on{border-bottom-color:var(--rule)}.toc .add{margin:0;white-space:nowrap;width:auto}}
+.sheet{background:var(--card);border-radius:.6rem;padding:2.25rem clamp(1.1rem,4vw,2.75rem) 2.75rem;border-top:3px solid var(--rule);min-width:0}
+.sheet section{display:none}
+.sheet section.cur{display:block;animation:enter .45s cubic-bezier(.2,.7,.2,1)}
+.stepn{color:var(--rule);font-weight:700;font-size:.9rem;margin:0 0 .4rem}
+.sheet h2{font:700 1.5rem/1.3 "Libre Caslon Text",Georgia,serif;margin:0 0 .75rem}
+.sheet h4{font:600 1.05rem/1.4 "Source Sans 3",sans-serif;margin:1.5rem 0 .35rem;color:var(--muted)}
+.editable{outline:none;border-radius:2px}
+.editable:empty::before{content:attr(data-ph);color:var(--hint);font-style:italic}
+.write{min-height:6.6em;padding:.1rem .25rem;line-height:1.65rem;white-space:pre-wrap;transition:background-color .3s;
+  background-image:linear-gradient(to bottom,transparent calc(1.65rem - 1px),var(--line) calc(1.65rem - 1px));background-size:100% 1.65rem}
+.write.short{min-height:3.3em}
+.write:focus{background-color:color-mix(in srgb,var(--line) 22%,transparent)}
+.add{font:600 .95rem "Source Sans 3",sans-serif;background:none;color:var(--rule);border:1.5px dashed var(--rule);border-radius:.4rem;padding:.6rem 1rem;cursor:pointer}
+.del{font:.85rem "Source Sans 3",sans-serif;background:none;border:0;color:var(--hint);cursor:pointer;padding:0;margin-left:.6rem}
+.del:hover{color:var(--rule)}
+.pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;flex-wrap:wrap}
+.pager a{font:600 .95rem "Source Sans 3",sans-serif;background:var(--paper);color:var(--ink);text-decoration:none;border-radius:.45rem;padding:.75rem 1.1rem}
+.pager a:hover{background:var(--tab)}
+/* Vídeos y enlaces */
+.videos{display:grid;gap:1.75rem;margin-top:1rem}
+.video figure{margin:0}
+.frame{position:relative;aspect-ratio:16/9;background:#0E131D;border-radius:.5rem;overflow:hidden}
+.frame iframe,.frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video figcaption{margin-top:.5rem;font-weight:600;display:flex;align-items:center;flex-wrap:wrap}
+.links{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.75rem}
+.links li{border-left:3px solid var(--rule);padding:.6rem .9rem;background:var(--paper);border-radius:0 .4rem .4rem 0}
+.links a{font-weight:600;text-decoration-color:var(--rule);text-underline-offset:3px}
+.links .dom{color:var(--muted);font-size:.85rem;margin-left:.5rem}
+.links p{margin:.25rem 0 0;color:var(--muted);font-size:.95rem}
+.empty-note{color:var(--hint);font-style:italic;margin:.5rem 0 0}
+.adder{margin-top:1.75rem;padding:1.1rem;border:1.5px dashed var(--line);border-radius:.5rem;display:grid;gap:.6rem}
+.adder label{font-weight:600;font-size:.9rem}
+.adder input{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:.4rem;padding:.55rem .7rem;width:100%}
+.adder .row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.adder .row input{flex:1 1 14rem;width:auto}
+.adder button{font:600 .95rem "Source Sans 3",sans-serif;background:var(--rule);color:#fff;border:0;border-radius:.4rem;padding:.6rem 1rem;cursor:pointer}
+.adder .err{color:var(--rule);font-size:.9rem;margin:0;min-height:1.2em}
+.saved{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));background:var(--rule);color:#fff;z-index:30;font-size:.85rem;padding:.4rem .8rem;border-radius:.4rem;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.saved.on{opacity:1;transform:none}
+[data-mode="read"] .editable:empty::before{content:none}
+[data-mode="read"] .bar,[data-mode="read"] .fcard .pct,[data-mode="read"] .tile small,[data-mode="read"] .toc .ok{display:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}
+  .hero h1 .w,.hero .lead,.cta,.scroll-hint,.reveal{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+
+.texto{min-height:3.3em;padding:.1rem .25rem;line-height:1.65rem}
+.texto p{margin:0 0 1.65rem}.texto p:last-child{margin:0}
+.texto:empty,.hint:empty{background-image:linear-gradient(to bottom,transparent calc(1.65rem - 1px),var(--line) calc(1.65rem - 1px));background-size:100% 1.65rem;min-height:4.95em}
+.texto:empty::before,.hint:empty::before{content:attr(data-ph);color:var(--hint);font-style:italic}
+.theme-head .hint:empty::before,.hero .hint:empty::before{color:#8FA2C2}
+.theme-head .hint:empty,.hero .hint:empty{background:none;min-height:0}
+.hint:empty{display:inline-block;min-width:12rem}
+.frame .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem;color:#8FA2C2;font-style:italic;border:1.5px dashed #3A4A68;border-radius:.5rem}
+.links:empty::before{content:"Todavía no hay enlaces.";color:var(--hint);font-style:italic}
+.links:empty{padding:0}
+</style>
+</head>
+<body>
+<div class="top show" id="top"><div class="in">
+  <a class="brand" href="index.html">Mi porfolio</a>
+  <nav class="menu" aria-label="Secciones"><a href="index.html" data-p="home">Inicio</a><a href="tema1.html" data-p="t1">Tema 1</a><a href="tema2.html" data-p="t2">Tema 2</a><a href="tema3.html" data-p="t3">Tema 3</a><a href="tema4.html" data-p="t4">Tema 4</a><a href="tema5.html" data-p="t5">Tema 5</a></nav>
+</div><div class="progress" id="progress"></div></div>
+<main class="page">
+  <header class="theme-head lined"><div class="in">
+    <p class="n">Tema 4</p>
+    <h1>Título del tema 4</h1>
+    <p>Una línea sobre de qué trata el tema.</p>
+  </div></header>
+  <div class="theme-body">
+    <nav class="toc" aria-label="Apartados del tema"></nav>
+    <article class="sheet">
+      <p class="stepn"></p>
+      <!-- Cada <section> es un apartado y se muestra en su propia página. -->
+
+      <section>
+        <h2>Introducción al tema</h2>
+        <div class="texto" data-ph="Escribe aquí tu introducción al tema…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <!-- Para añadir un apartado, copia un bloque <section> completo y cambia el número y el título. -->
+      <section>
+        <h2>1. Título del apartado</h2>
+        <div class="texto" data-ph="Tu resumen del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>2. Título del apartado</h2>
+        <div class="texto" data-ph="Tu resumen del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>3. Título del apartado</h2>
+        <div class="texto" data-ph="Tu resumen del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <!-- ================= VÍDEOS =================
+           Pega el enlace normal del vídeo (YouTube, Vimeo o Google Drive) en data-src
+           y, si quieres, un título en data-title. Para añadir otro, copia un bloque <div class="video">.
+           Si no usas un bloque, bórralo. -->
+      <section>
+        <h2>Vídeos</h2>
+        <div class="videos">
+          <div class="video" data-src="" data-title=""></div>
+          <div class="video" data-src="" data-title=""></div>
+        </div>
+      </section>
+
+      <!-- ================= ENLACES DE INTERÉS =================
+           Borra el comentario de dentro de <ul class="links"> y pon un <li> por enlace, así:
+           <li><a href="https://www.ejemplo.com">Título del enlace</a><p>Por qué es interesante</p></li> -->
+      <section>
+        <h2>Enlaces de interés</h2>
+        <ul class="links"><!-- tus <li> aquí --></ul>
+      </section>
+
+      <section>
+        <h2>Reflexión personal</h2>
+        <div class="texto" data-ph="Qué te ha parecido el tema y qué relación tiene con tus intereses…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>Conceptos clave</h2>
+        <div class="texto" data-ph="Los términos más importantes del tema, con tus palabras…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>Referencias</h2>
+        <div class="texto" data-ph="Las referencias que hayas usado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <div class="pager"></div>
+    </article>
+  </div>
+</main>
+<script>window.PAGE={"id": "t4", "n": 4};</script>
+<script>
+(function(){
+var P=window.PAGE;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+$$('.menu a').forEach(function(a){if(a.getAttribute('data-p')===P.id)a.setAttribute('aria-current','page')});
+var topbar=$('#top');
+function onScroll(){var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  topbar.classList.toggle('show',P.id!=='home'||y>innerHeight*0.6);$('#progress').style.width=(h>0?y/h*100:0)+'%'}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* Vídeos: convierte el enlace normal en reproductor */
+function embed(u){var m;
+  if(m=u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/))return{f:'https://www.youtube.com/embed/'+m[1]};
+  if(m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))return{f:'https://player.vimeo.com/video/'+m[1]};
+  if(m=u.match(/drive\.google\.com\/file\/d\/([^/?#]+)/))return{f:'https://drive.google.com/file/d/'+m[1]+'/preview'};
+  if(/\.(mp4|webm|ogg)(\?|$)/i.test(u))return{v:u};return null}
+$$('.video').forEach(function(v){
+  var u=(v.getAttribute('data-src')||'').trim(),t=v.getAttribute('data-title')||'',e=u?embed(u):null,fr=document.createElement('div');fr.className='frame';
+  if(e&&e.f){var i=document.createElement('iframe');i.src=e.f;i.title=t||'Vídeo';i.loading='lazy';i.allowFullscreen=true;
+    i.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    i.setAttribute('referrerpolicy','strict-origin-when-cross-origin');fr.appendChild(i)}
+  else if(e&&e.v){var vd=document.createElement('video');vd.src=e.v;vd.controls=true;vd.preload='metadata';fr.appendChild(vd)}
+  else fr.innerHTML='<div class="ph">'+(u?'Este enlace no se puede mostrar como vídeo. Usa YouTube, Vimeo o Google Drive.':'Aquí se verá tu vídeo')+'</div>';
+  var f=document.createElement('figure');f.appendChild(fr);
+  if(t){var c=document.createElement('figcaption');c.textContent=t;f.appendChild(c)}
+  v.innerHTML='';v.appendChild(f)});
+$$('.links a').forEach(function(a){a.target='_blank';a.rel='noopener';
+  if(!a.querySelector('.dom')){try{var s=document.createElement('span');s.className='dom';s.textContent=new URL(a.href).hostname.replace(/^www\./,'');a.after(s)}catch(e){}}});
+
+if(P.id==='home'){
+  var drawer=$('#drawer'),cards=$$('.fcard',drawer),fan=[[-44,-26,-9],[-20,-12,-4],[0,0,1],[22,12,5],[44,26,10]];
+  function pos(f,l){var p=fan[f.getAttribute('data-i')];return'translate(-50%,-50%) translate('+p[0]+'%,'+(p[1]-(l?10:0))+'%) rotate('+(l?0:p[2])+'deg)'+(l?' scale(1.04)':'')}
+  cards.forEach(function(f,i){f.style.zIndex=i;
+    f.addEventListener('mouseenter',function(){f.style.transitionDelay='0s';f.style.transform=pos(f,1)});
+    f.addEventListener('mouseleave',function(){f.style.transform=pos(f,0)})});
+  requestAnimationFrame(function(){requestAnimationFrame(function(){drawer.classList.add('dealt');
+    cards.forEach(function(f,i){f.style.transitionDelay=(0.35+i*0.12)+'s';f.style.transform=pos(f,0)})})});
+  $$('#heroTitle .w').forEach(function(s,i){s.style.animationDelay=(0.1+i*0.12)+'s'});
+  $('#toAbout').onclick=function(){$('#about').scrollIntoView({behavior:'smooth'})};
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.15}):null;
+  $$('.reveal').forEach(function(r){io?io.observe(r):r.classList.add('in')});
+}else{
+  var n=P.n,FILES=['tema1.html','tema2.html','tema3.html','tema4.html','tema5.html'];
+  var nextFile=n<5?FILES[n]:'index.html',prevFile=n>1?FILES[n-2]:'index.html';
+  var ss=$$('.sheet > section');
+  function label(s){return $('h2',s).textContent.trim()||'Apartado'}
+  var t=$('.toc');t.innerHTML='<p>Apartados</p>';
+  ss.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.className='step';b.textContent=label(s);b.onclick=function(){show(i)};t.appendChild(b)});
+  function show(i,noScroll){
+    i=Math.max(0,Math.min(i|0,ss.length-1));
+    ss.forEach(function(s,j){s.classList.toggle('cur',j===i)});
+    $('.stepn').textContent='Apartado '+(i+1)+' de '+ss.length;
+    $$('.toc .step').forEach(function(b,j){b.classList.toggle('on',j===i)});
+    var prev=i>0?['← '+label(ss[i-1]),i-1]:[n>1?'← Tema '+(n-1):'← Inicio',prevFile];
+    var next=i<ss.length-1?[label(ss[i+1])+' →',i+1]:[n<5?'Tema '+(n+1)+' →':'Volver al inicio',nextFile];
+    var pg=$('.pager');pg.innerHTML='';
+    [prev,next].forEach(function(x){var a=document.createElement('a');a.textContent=x[0];
+      if(typeof x[1]==='number'){a.href='#'+(x[1]+1);a.onclick=function(e){e.preventDefault();show(x[1])}}else a.href=x[1];pg.appendChild(a)});
+    try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+    if(!noScroll){var b=$('.theme-body');if(scrollY>b.offsetTop-80)scrollTo({top:b.offsetTop-80,behavior:'smooth'})}
+  }
+  var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0,true);
+}
+})();
+</script>
+</body>
+</html>
