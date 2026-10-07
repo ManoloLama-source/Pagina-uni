@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tema 2 · Porfolio</title>
+<title>Tema 2 · Documentación e información</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -146,7 +146,7 @@ footer{background:var(--deep);color:#AFC0DA;text-align:center;padding:2.5rem 1.2
   .hero h1 .w,.hero .lead,.cta,.scroll-hint,.reveal{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
 
 .texto{min-height:3.3em;padding:.1rem .25rem;line-height:1.65rem}
-.texto p{margin:0 0 1.65rem}.texto p:last-child{margin:0}
+.texto p{margin:0 0 1.65rem}.texto ul{margin:0;padding-left:1.3rem}.texto p:last-child{margin:0}
 .texto:empty,.hint:empty{background-image:linear-gradient(to bottom,transparent calc(1.65rem - 1px),var(--line) calc(1.65rem - 1px));background-size:100% 1.65rem;min-height:4.95em}
 .texto:empty::before,.hint:empty::before{content:attr(data-ph);color:var(--hint);font-style:italic}
 .theme-head .hint:empty::before,.hero .hint:empty::before{color:#8FA2C2}
@@ -155,6 +155,12 @@ footer{background:var(--deep);color:#AFC0DA;text-align:center;padding:2.5rem 1.2
 .frame .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem;color:#8FA2C2;font-style:italic;border:1.5px dashed #3A4A68;border-radius:.5rem}
 .links:empty::before{content:"Todavía no hay enlaces.";color:var(--hint);font-style:italic}
 .links:empty{padding:0}
+.figura{margin:1.5rem 0 .5rem;text-align:center}
+.figura a{display:block;background:#fff;border:1px solid var(--line);border-radius:.5rem;padding:.75rem;overflow:hidden}
+.figura img{max-width:100%;height:auto;display:block;margin:0 auto;transition:transform .3s}
+.figura a:hover img{transform:scale(1.01)}
+.figura.alta img{max-height:42rem;width:auto}
+.figura figcaption{margin-top:.5rem;color:var(--muted);font-size:.92rem}
 </style>
 </head>
 <body>
@@ -165,8 +171,8 @@ footer{background:var(--deep);color:#AFC0DA;text-align:center;padding:2.5rem 1.2
 <main class="page">
   <header class="theme-head lined"><div class="in">
     <p class="n">Tema 2</p>
-    <h1>Título del tema 2</h1>
-    <p>Una línea sobre de qué trata el tema.</p>
+    <h1>Documentación e información, evolución de la disciplina</h1>
+    <p>Historia de la Documentación, qué es y cómo funciona la cadena documental.</p>
   </div></header>
   <div class="theme-body">
     <nav class="toc" aria-label="Apartados del tema"></nav>
@@ -176,23 +182,84 @@ footer{background:var(--deep);color:#AFC0DA;text-align:center;padding:2.5rem 1.2
 
       <section>
         <h2>Introducción al tema</h2>
-        <div class="texto" data-ph="Escribe aquí tu introducción al tema…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
-      </section>
-
-      <!-- Para añadir un apartado, copia un bloque <section> completo y cambia el número y el título. -->
-      <section>
-        <h2>1. Título del apartado</h2>
-        <div class="texto" data-ph="Tu resumen del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <div class="texto" data-ph="Tu introducción al tema…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
       </section>
 
       <section>
-        <h2>2. Título del apartado</h2>
-        <div class="texto" data-ph="Tu resumen del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h2>1. La Documentación como disciplina científica. Un poco de historia</h2>
+        <div class="texto" data-ph="Tu resumen general del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Paul Otlet, Henri La Fontaine y el Instituto de Bibliografía de Bruselas (1895)</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Las tres herencias del Instituto: Documentación moderna, CDU y FID</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>La figura del documentalista</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Los orígenes en España: Ortega y Gasset, el CSIC y el CINDOC</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>La Documentación como disciplina universitaria</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
       </section>
 
       <section>
-        <h2>3. Título del apartado</h2>
-        <div class="texto" data-ph="Tu resumen del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h2>2. ¿Qué es la Documentación?</h2>
+        <div class="texto" data-ph="Tu resumen general del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Definición de Documentación</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>El objeto de estudio: procesos documentales e instituciones documentales</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>El documentalista como profesional de la información</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Relación con otras disciplinas: Lingüística, Informática, Bibliometría y Ciencias Jurídicas</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>3. La cadena documental</h2>
+        <div class="texto" data-ph="Tu resumen general del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Fases comunes: entrada (input), tratamiento y salida (output)</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>3A. Modelo de cadena documental básica</h2>
+        <div class="texto" data-ph="Tu resumen general del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <figure class="figura alta">
+          <a href="img/tema2-figura1.jpg" target="_blank" rel="noopener" title="Abrir la figura a tamaño completo"><img src="img/tema2-figura1.jpg" alt="Figura 1. Modelo de cadena documental básica" loading="lazy"></a>
+          <figcaption>Figura 1. Modelo de cadena documental básica (pulsa para verla en grande)</figcaption>
+        </figure>
+        <h4>Entrada de datos (input): documentos primarios y secundarios</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Tratamiento documental y recuperación de información</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Salida de datos (output)</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+      </section>
+
+      <section>
+        <h2>3B. Modelo de cadena documental completa</h2>
+        <div class="texto" data-ph="Tu resumen general del apartado…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <figure class="figura">
+          <a href="img/tema2-figura2.jpg" target="_blank" rel="noopener" title="Abrir la figura a tamaño completo"><img src="img/tema2-figura2.jpg" alt="Figura 2. Modelo de cadena documental completa" loading="lazy"></a>
+          <figcaption>Figura 2. Modelo de cadena documental completa (pulsa para verla en grande)</figcaption>
+        </figure>
+        <h4>Entrada de datos (input): fuentes internas y externas, precatalogación</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Tratamiento documental: normas de descripción (ISBD, UNIMARC, MARC 21), autoridades y normalización</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Catalogación, clasificación y lenguajes documentales (CDU, Dewey, encabezamientos de materia, tesauros)</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Análisis de contenido: indización, resumen y otros tratamientos</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Organización: preparación física, tejuelo y organización topográfica</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Recuperación de información: procesamiento y modelos (booleano, probabilístico, vectorial)</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Salida de datos (output): la difusión de la información</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Tipos de difusión: documentos primarios, referencias y DSI</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
+        <h4>Ejemplos de DSI: BioMail, collaborative filtering y RSS</h4>
+        <div class="texto" data-ph="Tu resumen…"><!-- ✏️ ESCRIBE AQUÍ. Cada párrafo entre <p> y </p> --></div>
       </section>
 
       <!-- ================= VÍDEOS =================
